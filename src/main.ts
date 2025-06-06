@@ -40,3 +40,24 @@ async function getActress(id: number): Promise<Actress | null> {
 
   };
 };
+
+async function getAllActresses(): Promise<Actress[]> {
+  try {
+
+    const res = await fetch(`http://localhost:3333/actresses`);
+    const data: unknown = await res.json();
+
+    if (!(data instanceof Array)) {
+      throw new Error("Formato dati non valido: non è un array");
+    };
+
+    const validAcytress: Actress[] = data.filter(isActress);
+    return validAcytress;
+
+  } catch (error) {
+
+    console.error(error);
+    return [];
+
+  };
+}
