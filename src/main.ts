@@ -51,8 +51,8 @@ async function getAllActresses(): Promise<Actress[]> {
       throw new Error("Formato dati non valido: non è un array");
     };
 
-    const validAcytress: Actress[] = data.filter(isActress);
-    return validAcytress;
+    const validActress: Actress[] = data.filter(isActress);
+    return validActress;
 
   } catch (error) {
 
